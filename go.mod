@@ -1,4 +1,4 @@
-module github.com/tuxdude/zfs
+module github.com/tuxgal/zfs
 
 go 1.18
 
