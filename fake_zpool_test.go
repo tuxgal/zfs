@@ -162,13 +162,14 @@ func (f *fakeZpoolCmd) get(poolName string, props []string, cols []string) (stri
 
 	for _, prop := range props {
 		for _, col := range cols {
-			if col == "name" {
+			switch col {
+			case "name":
 				ow.writeCol(poolName)
-			} else if col == "property" {
+			case "property":
 				ow.writeCol(prop)
-			} else if col == "value" {
+			case "value":
 				ow.writeCol(pool.props[prop])
-			} else {
+			default:
 				panic(fmt.Sprintf("'zpool get' unsupported column: %q", col))
 			}
 		}
